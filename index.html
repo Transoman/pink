@@ -8,7 +8,7 @@
 
 			<title>Document</title>
 
-			<link rel="stylesheet" href="css/fonts.css">
+			<!-- <link rel="stylesheet" href="css/fonts.css"> -->
 			<link rel="stylesheet" href="css/style.css">
 			
 			<!--[if lt IE 9]>
@@ -17,26 +17,31 @@
 	</head>
 	<body>
 		<header class="main-header">
-			<div class="container">
+			<div class="container clearfix">
 
 				<div class="logo  main-header__logo">
-					<img src="" alt="Pink">
+					<h1 class="logo__title">Pink</h1>
+					<img src="" alt="Pink" class="logo__img">
 				</div>
 
 				<nav class="nav  main-header__nav">
-					<button class="nav__btn">Меню</button>
+					<button class="nav__btn">
+						<span class="nav__btn-line  nav__btn-line--top"></span>
+						<span class="nav__btn-line  nav__btn-line--middle"></span>
+						<span class="nav__btn-line  nav__btn-line--bottom"></span>
+					</button>
 					<ul class="nav__list">
 						<li class="nav__item">
-							<a href="#" class="nav__list">Главная</a>
+							<a href="#" class="nav__link">Главная</a>
 						</li>
 						<li class="nav__item">
-							<a href="#" class="nav__list">Фотографии</a>
+							<a href="#" class="nav__link">Фотографии</a>
 						</li>
 						<li class="nav__item">
-							<a href="#" class="nav__list">Конкурс</a>
+							<a href="#" class="nav__link">Конкурс</a>
 						</li>
 						<li class="nav__item">
-							<a href="#" class="nav__list">HTML Academy</a>
+							<a href="#" class="nav__link">HTML Academy</a>
 						</li>
 					</ul>
 				</nav>
@@ -231,5 +236,6 @@
 
 		</section>
 
+		<script src="js/common.js"></script>
 	</body>
 </html>
