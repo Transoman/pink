@@ -15,13 +15,13 @@ gulp.task('browser-sync', function() {
 
 gulp.task('styles', function() {
 	return gulp.src('sass/style.sass')
-	.pipe(sass())
+	.pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
 	.pipe(gulp.dest('css'))
 	.pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
-	gulp.watch('sass/style.sass', ['styles']);
+	gulp.watch('sass/**/*.sass', ['styles']);
 	gulp.watch('*.html').on("change", browserSync.reload);
 });
 
