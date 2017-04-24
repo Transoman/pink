@@ -1,0 +1,30 @@
+*,
+*:before,
+*:after
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+.clearfix:before,
+.clearfix:after
+	content: ''
+	display: table
+
+.clearfix:after 
+	clear: both
+
+.clearfix
+	zoom: 1 /* For IE 6/7 hasLayout */
+
+body
+	margin: 0
+	padding: 0
+	font-family: $font
+	font-size: 14px
+	line-height: 1.6
+	color: $mainColor
+
+.container
+	width: 320px
+	margin: 0 auto
+	padding: 0 20px
