@@ -1,5 +1,12 @@
 .main-header
-	position: relative
+	position: fixed
+	width: 100%
 	background: #000
 	background: rgba(0,0,0,.3)
-	padding: 20px 0
+	padding: 20px
+	z-index: 2
+
+
+@media #{$desctopWidth}
+	.main-header
+		padding: 25px 0 40px

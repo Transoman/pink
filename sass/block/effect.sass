@@ -1,0 +1,59 @@
+.effect	
+	display: none
+
+
+@media #{$tabletWidth}
+	.effect
+		display: block
+		padding-top: 95px
+		padding-bottom: 85px
+
+	.effect__content
+		position: relative
+		padding-left: 310px
+		&::before
+			content: ''
+			position: absolute
+			top: -35px
+			left: 0
+			width: 240px
+			height: 280px
+			background: url(../img/clock.svg) no-repeat
+			background-size: 240px
+
+		p
+			margin: 0
+			margin-bottom: 20px
+		a
+			color: $pink
+			transition: color .25s ease
+			&:hover
+				color: $mainColor
+			&:active
+				opacity: .3
+
+	.effect__title
+		margin: 0
+		margin-bottom: 20px
+		font-family: $fontBold
+		font-size: 30px
+
+@media #{$desctopWidth}
+	.effect
+		background: $light-gray
+
+	.effect__content
+		margin-top: 50px
+		padding-left: 370px
+		&::before
+			width: 300px
+			height: 350px
+			top: -90px
+			background-size: 300px
+
+	.effect__content p
+		font-size: 18px
+		margin-bottom: 40px
+
+	.effect__content a
+		font-size: 18px

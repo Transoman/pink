@@ -1,0 +1,217 @@
+.user-filters
+	padding: 20px 20px 40px
+	background: $light-gray
+
+	&__img
+		text-align: center
+		img
+			max-width: 100%
+
+.filters
+	&__radio
+		display: none
+
+	&__icons
+		margin-top: 40px
+		margin-bottom: 30px
+		text-align: center
+
+	&__icon
+		display: inline-block
+		vertical-align: middle
+		margin-right: 35px
+		font-size: 0
+		cursor: pointer
+		&:last-child
+			margin-right: 0
+		svg
+			width: 44px
+			height: 44px
+			path
+				fill: #b5b9be
+		&:hover
+			svg
+				path
+					fill: #8d949b
+		&--contrast
+			svg
+				width: 32px
+				height: 32px
+
+	&__range-wrap
+		position: relative
+		margin-bottom: 65px
+		&::after
+			content: ''
+			position: absolute
+			top: 35px
+			right: 0
+			left: 0
+			height: 1px
+			margin: 0 -20px
+			background-color: #dddfe0
+
+	&__range
+		display: none
+		appearance: none;
+		width: 100%
+		height: 2px
+		background: $mainColor
+		
+		&::-webkit-slider-thumb
+			appearance: none;
+			width: 14px
+			height: 14px
+			border: 2px solid $accentColor
+			border-radius: 50%
+			background: $light-gray
+			outline: none
+			cursor: pointer
+			&:active
+				background-color: $accentColor
+
+
+	&__btn
+		display: block
+		margin: 0 auto
+		width: 280px
+		height: 55px
+		border: 3px solid $accentColor
+		background: none
+		outline: none
+		cursor: pointer
+		font-size: 18px
+		font-weight: 700
+		border-radius: 30px
+		&:hover
+			background-color: $accentColor
+			color: #fff
+		&:active
+			background-color: $accentColor
+			color: rgba(255,255,255,.3)
+
+		&--submit
+			margin-bottom: 12px
+			color: $accentColor
+		&--reset
+			border-color: #dddfe0
+			color: rgba($mainColor,.1)
+			&:hover
+				border-color: #b5b9be
+				color: rgba($mainColor,.3)
+				background: none
+			&:active
+				background: #b5b9be
+				border-color: #b5b9be
+				color: rgba(255,255,255,.3)
+
+
+#tools-toggle-1:checked ~ .filters__icons label[for="tools-toggle-1"],
+#tools-toggle-2:checked ~ .filters__icons label[for="tools-toggle-2"],
+#tools-toggle-3:checked ~ .filters__icons label[for="tools-toggle-3"]
+	svg
+			path
+				fill: $accentColor
+
+#tools-toggle-1:checked ~ .filters__range-wrap #crop,
+#tools-toggle-2:checked ~ .filters__range-wrap #fill,
+#tools-toggle-3:checked ~ .filters__range-wrap #contrast
+	display: block
+
+
+@media #{$tabletWidth}
+	.user-filters
+		& > .container
+			display: flex
+			justify-content: space-between
+
+	.user-filters__img
+		width: 300px
+
+	.filters__icons
+		position: absolute
+		z-index: 2
+
+	.filters__icon
+		position: relative
+		display: block
+		margin: 0
+		margin-bottom: 36px
+		svg
+			width: 22px
+			height: 22px
+			path
+				fill: $accentColor
+		&:hover
+			svg
+				path
+					fill: $accentColor
+		&--contrast
+			svg
+				width: 16px
+				height: 16px
+		&::after
+			content: ''
+			position: absolute
+			bottom: -19px
+			left: 18px
+			width: 265px
+			height: 1px
+			margin: 0 -20px
+			background-color: #dddfe0
+
+	.filters__range-wrap
+		width: 270px
+		margin: 50px 0 100px
+		&::after
+			display: none
+
+	.filters__range
+		display: block
+		width: 200px
+		margin-left: 50px
+		margin-bottom: 55px
+
+	.filters__btn
+		width: 260px
+		&--submit
+			margin-bottom: 25px
+
+@media #{$desctopWidth}
+	.user-filters
+		padding: 0
+		margin-bottom: 65px
+		background: #fff
+		& > .container
+			padding: 55px 60px 55px 80px
+			background: $light-gray
+
+	.filters__icons
+		margin-top: 0
+
+	.filters__icon
+		svg
+			width: 44px
+			height: 44px
+		&--contrast
+			svg
+				width: 32px
+				height: 32px
+		&::after
+			width: 410px
+
+	.filters__range-wrap
+		width: 410px
+		margin-top: 21px
+
+	.filters__range
+		width: 290px
+		margin-bottom: 75px
+		margin-left: 90px
+
+	.filters__btn
+		display: inline-block
+		vertical-align: top
+		width: 180px
+		&--submit
+			margin-right: 45px

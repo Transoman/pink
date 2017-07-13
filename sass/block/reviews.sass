@@ -1,0 +1,156 @@
+.reviews
+	padding-top: 50px
+
+	&__input
+		display: none
+
+	&__inner
+		width: auto
+		overflow: hidden
+		margin-bottom: 35px
+
+	&__list
+		width: 300%
+		margin: 0
+		padding: 0
+		list-style-type: none
+
+	&__item
+		float: left
+		width: 33.33%
+		padding: 0 20px
+		position: relative
+		text-align: center
+		transition: transform .5s ease
+
+	&__author-name
+		display: block
+		margin-bottom: 20px
+		font-size: 18px
+		line-height: 30px
+		font-weight: 700
+		font-style: normal
+		color: #000
+
+	&__author-about
+		display: none
+
+	blockquote
+		margin: 0
+		padding: 0
+		line-height: 30px
+
+	&__toggles
+		text-align: center
+		margin-bottom: 70px
+
+	&__toggle
+		display: inline-block
+		vertical-align: top
+		font-size: 0
+		margin-right: 5px
+		width: 12px
+		height: 12px
+		border: 3px solid #fff
+		border-radius: 50%
+		background-color: $gray
+		cursor: pointer
+
+	&__left, &__right
+		display: none
+
+#reviews-toggle-1:checked ~ .reviews__inner .reviews__item
+	transform: translate(0)
+
+#reviews-toggle-2:checked ~ .reviews__inner .reviews__item
+	transform: translate(-100%)
+
+#reviews-toggle-3:checked ~ .reviews__inner .reviews__item
+	transform: translate(-200%)
+
+#reviews-toggle-1:checked ~ .reviews__toggles label[for="reviews-toggle-1"],
+#reviews-toggle-2:checked ~ .reviews__toggles label[for="reviews-toggle-2"],
+#reviews-toggle-3:checked ~ .reviews__toggles label[for="reviews-toggle-3"]
+	border-color: $mainColor
+	background-color: #fff
+
+@media #{$tabletWidth}
+	.reviews__item-wrap
+		position: absolute
+		left: 50%
+		bottom: 0
+		transform: translateX(-50%)
+
+	.reviews__item
+		padding: 0
+
+	.reviews__item blockquote
+		padding-bottom: 100px
+		font-size: 18px
+
+	.reviews__author-name
+		font-size: 20px
+		margin-bottom: 10px
+
+	.reviews__author-about
+		display: block
+
+
+@media #{$desctopWidth}
+	.reviews
+		padding-top: 70px
+		& > .container
+			position: relative
+	.reviews__inner
+		width: 720px
+		margin: 0 auto
+		margin-bottom: 120px
+		position: relative
+		padding-top: 115px
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 50%
+			transform: translateX(-50%)
+			width: 79px
+			height: 63px
+			background: url(../img/quotes.svg) no-repeat
+			background-size: 79px
+
+	.reviews__author-name
+		font-size: 24px
+
+	.reviews__author-about
+		font-size: 18px
+
+	.reviews__toggles
+		display: none
+
+	.reviews__left, .reviews__right
+		display: block
+		position: absolute
+		top: 50%
+		border: 0
+		outline: none
+		background: none
+		cursor: pointer
+		svg
+			path
+				fill: $gray
+
+		&:hover
+			svg
+				path
+					fill: #7e868f
+		&:active
+			svg
+				path
+					fill: #7e868f
+					opacity: .1
+
+	.reviews__left
+		left: 0
+
+	.reviews__right
+		right: 0

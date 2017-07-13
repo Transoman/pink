@@ -1,0 +1,176 @@
+.plans
+	position: relative
+	padding: 65px 0 45px
+	margin-bottom: 50px
+	background: $light-gray
+	overflow: hidden
+	&::before
+		content: ''
+		position: absolute
+		top: -12px
+		left: 0
+		right: 0
+		height: 25px
+		background: $light-gray
+		transform: rotate(-2deg)
+
+	&__inner
+		width: auto
+		overflow: hidden
+
+	&__table
+		width: 260%
+		margin-bottom: 40px
+		border-collapse: collapse
+		transition: all .25s ease
+
+	&__header
+		position: relative
+		padding: 16px 0
+		background: $mainColor
+		color: #fff
+		border-right: 2px solid #e5e5e5
+		&:first-child
+			display: none
+
+	&__tariff
+		display: block
+		font-size: 18px
+		line-height: 30px
+		text-transform: uppercase
+		font-weight: 700
+
+	&__price
+		font-family: $fontLight
+		font-size: 24px
+		font-weight: normal
+
+	&__body
+
+	&__body-item
+		background: #fff
+		td
+			text-transform: uppercase
+			padding: 20px
+			border: 2px solid #e5e5e5
+			border-top: 0
+			&:first-child
+				display: none
+			i
+				float: right
+
+	&__input
+		display: none
+
+	&__toggles
+		text-align: center
+
+	&__toggle
+		display: inline-block
+		vertical-align: top
+		margin-right: 5px
+		font-size: 0
+		width: 12px
+		height: 12px
+		border: 3px solid $light-gray
+		border-radius: 50%
+		background-color: $gray
+		cursor: pointer
+
+#plans-toggle-1:checked ~ .plans__inner .plans__table
+	transform: translate(2.5%)
+
+#plans-toggle-2:checked ~ .plans__inner .plans__table
+	transform: translate(-30.7%)
+
+#plans-toggle-3:checked ~ .plans__inner .plans__table
+	transform: translate(-64%)
+
+#plans-toggle-1:checked ~ .plans__toggles label[for="plans-toggle-1"],
+#plans-toggle-2:checked ~ .plans__toggles label[for="plans-toggle-2"],
+#plans-toggle-3:checked ~ .plans__toggles label[for="plans-toggle-3"]
+	border-color: $mainColor
+	background-color: #fff
+
+.ic-accept
+	position: static
+	display: inline-block
+	right: 20px
+	+sprite($yes)
+
+.ic-disabled
+	position: static
+	display: inline-block
+	right: 20px
+	+sprite($no)
+
+.ribbon
+	position: absolute
+	top: 5px
+	left: 3px
+	display: block
+	width: 30px
+	height: 30px
+	line-height: 30px
+	background-color: $pink
+	transform: rotate(-45deg)
+	text-align: center
+	text-transform: uppercase
+	&::before
+		content: ''
+		position: absolute
+		left: -29px
+		top: 0
+		height: 0
+		width: 0
+		border-bottom: 30px solid $pink
+		border-left: 30px solid transparent
+	&::after
+		content: ''
+		position: absolute
+		right: -29px
+		top: 0
+		height: 0
+		width: 0
+		border-bottom: 30px solid $pink
+		border-right: 30px solid transparent
+
+
+@media #{$tabletWidth}
+	.plans
+		&::before
+			top: -20px
+			height: 50px
+
+	.plans__table
+		width: 100%
+		transform: translate(0)
+		transition: none
+
+	.plans__header
+		&:first-child
+			display: table
+
+	.plans__body-item
+		td
+			font-size: 0
+			text-align: center
+			&:first-child
+				display: table-cell
+				width: 25%
+				text-align: left
+				font-size: 14px
+				border-top: 2px solid #e5e5e5
+				text-transform: none
+				white-space: nowrap
+			i
+				float: none
+
+
+	.plans__toggles
+		display: none
+
+	#plans-toggle-1:checked ~ .plans__inner .plans__table,
+	#plans-toggle-2:checked ~ .plans__inner .plans__table,
+	#plans-toggle-3:checked ~ .plans__inner .plans__table
+		transform: translate(0)

@@ -1,0 +1,154 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$android-logo-name: 'android-logo'
+$android-logo-x: 47px
+$android-logo-y: 0px
+$android-logo-offset-x: -47px
+$android-logo-offset-y: 0px
+$android-logo-width: 43px
+$android-logo-height: 47px
+$android-logo-total-width: 134px
+$android-logo-total-height: 82px
+$android-logo-image: '../img/sprite.png'
+$android-logo: (47px, 0px, -47px, 0px, 43px, 47px, 134px, 82px, '../img/sprite.png', 'android-logo', )
+$apple-logo-name: 'apple-logo'
+$apple-logo-x: 0px
+$apple-logo-y: 0px
+$apple-logo-offset-x: 0px
+$apple-logo-offset-y: 0px
+$apple-logo-width: 47px
+$apple-logo-height: 56px
+$apple-logo-total-width: 134px
+$apple-logo-total-height: 82px
+$apple-logo-image: '../img/sprite.png'
+$apple-logo: (0px, 0px, 0px, 0px, 47px, 56px, 134px, 82px, '../img/sprite.png', 'apple-logo', )
+$facebook-name: 'facebook'
+$facebook-x: 58px
+$facebook-y: 56px
+$facebook-offset-x: -58px
+$facebook-offset-y: -56px
+$facebook-width: 9px
+$facebook-height: 18px
+$facebook-total-width: 134px
+$facebook-total-height: 82px
+$facebook-image: '../img/sprite.png'
+$facebook: (58px, 56px, -58px, -56px, 9px, 18px, 134px, 82px, '../img/sprite.png', 'facebook', )
+$microsoft-logo-name: 'microsoft-logo'
+$microsoft-logo-x: 90px
+$microsoft-logo-y: 0px
+$microsoft-logo-offset-x: -90px
+$microsoft-logo-offset-y: 0px
+$microsoft-logo-width: 44px
+$microsoft-logo-height: 41px
+$microsoft-logo-total-width: 134px
+$microsoft-logo-total-height: 82px
+$microsoft-logo-image: '../img/sprite.png'
+$microsoft-logo: (90px, 0px, -90px, 0px, 44px, 41px, 134px, 82px, '../img/sprite.png', 'microsoft-logo', )
+$no-name: 'no'
+$no-x: 0px
+$no-y: 56px
+$no-offset-x: 0px
+$no-offset-y: -56px
+$no-width: 27px
+$no-height: 26px
+$no-total-width: 134px
+$no-total-height: 82px
+$no-image: '../img/sprite.png'
+$no: (0px, 56px, 0px, -56px, 27px, 26px, 134px, 82px, '../img/sprite.png', 'no', )
+$twitter-name: 'twitter'
+$twitter-x: 90px
+$twitter-y: 41px
+$twitter-offset-x: -90px
+$twitter-offset-y: -41px
+$twitter-width: 18px
+$twitter-height: 14px
+$twitter-total-width: 134px
+$twitter-total-height: 82px
+$twitter-image: '../img/sprite.png'
+$twitter: (90px, 41px, -90px, -41px, 18px, 14px, 134px, 82px, '../img/sprite.png', 'twitter', )
+$yes-name: 'yes'
+$yes-x: 27px
+$yes-y: 56px
+$yes-offset-x: -27px
+$yes-offset-y: -56px
+$yes-width: 31px
+$yes-height: 21px
+$yes-total-width: 134px
+$yes-total-height: 82px
+$yes-image: '../img/sprite.png'
+$yes: (27px, 56px, -27px, -56px, 31px, 21px, 134px, 82px, '../img/sprite.png', 'yes', )
+$youtube-name: 'youtube'
+$youtube-x: 108px
+$youtube-y: 41px
+$youtube-offset-x: -108px
+$youtube-offset-y: -41px
+$youtube-width: 15px
+$youtube-height: 13px
+$youtube-total-width: 134px
+$youtube-total-height: 82px
+$youtube-image: '../img/sprite.png'
+$youtube: (108px, 41px, -108px, -41px, 15px, 13px, 134px, 82px, '../img/sprite.png', 'youtube', )
+$spritesheet-width: 134px
+$spritesheet-height: 82px
+$spritesheet-image: '../img/sprite.png'
+$spritesheet-sprites: ($android-logo, $apple-logo, $facebook, $microsoft-logo, $no, $twitter, $yes, $youtube, )
+$spritesheet: (134px, 82px, '../img/sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
